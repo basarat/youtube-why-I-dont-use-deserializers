@@ -29,7 +29,7 @@ Let's create a mock JSON api to show the kind of data you might have to deal wit
 
 > Start with empty `api.ts`
 
-* We have a type annotation for users that have a first name, optional middle names, and a last name.
+* We have a type annotation for a user Data Transfer Object (DTO) that have a first name, optional middle names, and a last name.
 * And an example `loadUser` which provides an example async response using some mock data.
 
 > Start with empty `app.ts`
@@ -67,4 +67,51 @@ async function main() {
 
 * This works fine, but you can see this formatting of the User can really be a function that can be associated with the `User` data. 
 
-A common tranditional OO way to do this is to create a class. 
+
+> Jump to empty `user.ts`
+```ts
+class User {
+  id!: string
+  firstName!: string
+  middleNames!: string[]
+  lastName!: string
+  
+  fullName() {
+    return this.firstName
+      + (this.middleNames.length ? ' ' + this.middleNames.join(' ') : '')
+      + ' ' + this.lastName;
+  }
+}
+```
+* A common tranditional OO way to do this is to create a class that has the same or similar properties as the data transfer objects.
+* In addition to that it also provides a formatting method that we are looking for.
+
+> Select the properties on the class. 
+* At this point you would start to think of some way of transferring the information from the DTO into an instance of the class. 
+
+However I would argue that is simpler to just use the DTO as it as e.g. 
+
+```ts
+import { User } from './api';
+
+export function fullName(user: User) {
+  return user.firstName
+    + (user.middleNames.length ? ' ' + user.middleNames.join(' ') : '')
+    + ' ' + user.lastName;
+}
+```
+
+> Select the whole file. 
+To give us the same intutive lookup for operations possible on a user, I recommend keeping it consolidated into a single file as we have done in this example. 
+
+> Jump to `app.ts`
+
+```ts
+import * as user from './user';
+
+// Later
+console.log(user.fullName(userA));
+console.log(user.fullName(userB));
+```
+* The seperation of Data and Methods is one of the corner stones of functional programming, and this is the conventional way for many functional programming languages out there. 
+* Following this pattern also makes it easier to interoperate between related data structures with minimal third party dependence and magic code. 
