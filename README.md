@@ -20,7 +20,7 @@ In this video I present some of the resons why I don't use a deserialization lib
 TypeScript,JavaScript,ReactJS,NodeJS,AngularJS,MobX
 
 ## Intro / Outro 
-> Bonjor, in this video I present an example of a simple processing of a JSON response and why you might not need a deserialization library.
+> Bonjor, my name is Basarat in this video I present an example of why you might not need a deserialization library when using JavaScript.
 
 > As always, thanks for watching, and I would love to hear your thoughts and idea on serialization and deserialization of JSON in the comments below. Au revoir.
 
