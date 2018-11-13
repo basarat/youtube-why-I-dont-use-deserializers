@@ -29,6 +29,33 @@ Let's create a mock JSON api to show the kind of data you might have to deal wit
 
 > Start with empty `api.ts`
 
+```ts
+export interface User {
+  id: string,
+  firstName: string,
+  middleNames: string[],
+  lastName: string,
+}
+
+export async function loadUser(id: string): Promise<User | null> {
+  return {
+    a: {
+      id: 'a',
+      firstName: 'Matt',
+      middleNames: ['Alfred'],
+      lastName: 'Goosehumps',
+    },
+    b: {
+      id: 'b',
+      firstName: 'Peumal',
+      middleNames: [],
+      lastName: 'Veryveryverylongone',
+    }
+  }[id] || null;
+}
+
+```
+
 * We have a type annotation for a user Data Transfer Object (DTO) that have a first name, optional middle names, and a last name.
 * And an example `loadUser` which provides an example async response using some mock data.
 
