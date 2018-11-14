@@ -10,7 +10,7 @@
 # Why I don't use deserializers
 
 ## Description
-In this video I present some of the resons why I don't use a deserialization library 🌹
+In this video I present some of the reasons why I don't use a deserialization library 🌹
 
 ## Share
 <description> plus
