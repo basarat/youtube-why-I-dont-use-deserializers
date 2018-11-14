@@ -128,8 +128,7 @@ export function fullName(user: User) {
 }
 ```
 
-> Select the whole file. 
-To give us the same intutive lookup for operations possible on a user, I recommend keeping it consolidated into a single file as we have done in this example. 
+Organizing all the utilities for a particular dto into a single es module allows for intutive expansion and exploration of the oprations associated with a dto.
 
 > Jump to `app.ts`
 
@@ -140,5 +139,5 @@ import * as user from './user';
 console.log(user.fullName(userA));
 console.log(user.fullName(userB));
 ```
-* The seperation of Data and Methods is one of the corner stones of functional programming, and this is the conventional way for many functional programming languages out there. 
-* Following this pattern also makes it easier to interoperate between related data structures with minimal third party dependence and magic code. 
+* The seperation of Data and Methods is one of the corner stones of functional programming.
+* This is the pattern I follow for simple operations on non active data structures provided by APIs. 
